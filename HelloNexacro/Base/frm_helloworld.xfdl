@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="frm_helloworld" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="1280">
+        <Button id="Button00" taborder="0" text="안녕 Nexacro" left="310" top="70" width="120" height="50" onclick="my_button_handler"/>
+        <Edit id="Edit00" taborder="1" left="70" top="75" width="160" height="45"/>
+        <Static id="Static00" taborder="2" text="일반 텍스트입니다." left="90" top="180" width="120" height="60" onclick="my_button_handler"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[/*
+* Button00_onclick
+* id_event 임의의 핸들러 함수작성
+* this 현재 form을 가리킴.
+*/
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//alert('안녕');
+// 	trace('trace : ' + obj.text);
+// 	console.log('console.log :' + obj.text); //NRE에서 무시
+
+	alert(this.Edit00.value); //getter로 사용
+	this.Edit00.set_value('반갑다, Nexcaro'); //setter(함수)
+	
+	//전역객체 application
+	var application = nexacro.getApplication();
+	console.dir(application); //nexacro._EventSinkObject#Application_Desktop
+	
+};
+
+/**
+* custom함수 event binding
+*컴포넌트의 event속성에서 직접 지정
+*/
+this.my_button_handler = function(obj, e){
+	//alert('my_button_handler();');
+	alert(this.Static00.text);
+	this.Static00.set_text('박소연');
+};
+
+
+]]></Script>
+  </Form>
+</FDL>

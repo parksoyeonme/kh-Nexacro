@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="comp_checkbox" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" width="1280">
+        <CheckBox id="CheckBox00" taborder="0" text="메일수신여부" left="32" top="28" width="164" height="48" falsevalue="no" truevalue="yes"/>
+        <Button id="Button00" taborder="1" text="확인" left="192" top="32" width="120" height="41" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+   //alert(this.CheckBox00.value);
+   
+   var chk = this.CheckBox00;
+   chk.set_value(chk.isChecked() ? 'no' : 'yes');
+};]]></Script>
+  </Form>
+</FDL>

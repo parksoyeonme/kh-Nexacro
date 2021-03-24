@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="comp_radio" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" width="1280">
+        <Radio id="Radio00" taborder="0" left="50" top="55" width="280" height="50" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" columncount="0" rowcount="1" onitemchanged="Radio00_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">M</Col>
+                <Col id="datacolumn">남자</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">F</Col>
+                <Col id="datacolumn">여자</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Radio id="Radio01" taborder="1" left="60" top="150" width="348" height="136" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" columncount="2" rowcount="0" onitemchanged="Radio01_onitemchanged">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">Americao</Col>
+                <Col id="datacolumn">아메리카노</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">Caffe Macchiato</Col>
+                <Col id="datacolumn">마끼야또</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">Caffe Latte</Col>
+                <Col id="datacolumn">카페라떼</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">Capuchino</Col>
+                <Col id="datacolumn">카푸치노</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">Caffe Mocha</Col>
+                <Col id="datacolumn">카페모카</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <Radio id="Radio02" taborder="2" left="77" top="316" width="113" height="54" innerdataset="ds_color" codecolumn="colorCode" datacolumn="colorData" onitemchanged="Radio02_onitemchanged"/>
+        <Static id="Static00" taborder="3" text="Sample" left="220" top="273" width="280" height="154" font="48px/normal &quot;Consolas&quot;" textAlign="center" onclick="Static00_onclick"/>
+        <Edit id="Edit00" taborder="4" left="63" top="450" width="171" height="70" displaynulltext="color code"/>
+        <Edit id="Edit01" taborder="5" left="278" top="457" width="165" height="56" displaynulltext="color name"/>
+        <Button id="Button00" taborder="6" text="추가" left="499" top="454" width="79" height="51" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	alert(obj.value);
+};
+
+this.Radio01_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	alert(obj.value);
+};
+
+this.Radio02_onitemchanged = function(obj:nexacro.Radio,e:nexacro.ItemChangeEventInfo)
+{
+	//alert(obj.value);
+	//라디오 클릭시 스태틱 글씨 색 변경
+	this.Static00.set_color(obj.value);
+};
+
+//ds_color에 data 동적추가
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var colorCode =this.Edit00.value;
+	var colorData =this.Edit01.value;
+	
+	//ds_color 마지막에 행추가
+	var nRow = this.ds_color.addRow();
+	this.ds_color.setColumn(nRow, 'colorCode', colorCode);
+	this.ds_color.setColumn(nRow, 'colorData', colorData);
+	
+	//초기화
+	this.Edit00.set_value('');
+	this.Edit01.set_value('');
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_color">
+        <ColumnInfo>
+          <Column id="colorCode" type="STRING" size="256"/>
+          <Column id="colorData" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="colorCode">red</Col>
+            <Col id="colorData">빨강</Col>
+          </Row>
+          <Row>
+            <Col id="colorCode">yellow</Col>
+            <Col id="colorData">노랑</Col>
+          </Row>
+          <Row>
+            <Col id="colorCode">green</Col>
+            <Col id="colorData">초록</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

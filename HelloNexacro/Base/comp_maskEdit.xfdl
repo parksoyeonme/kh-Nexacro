@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="comp_maskEdit" width="1280" height="720" titletext="New Form" tooltiptype="default">
+    <Layouts>
+      <Layout height="720" width="1280">
+        <MaskEdit id="MaskEdit00" taborder="0" left="50" top="40" width="317" height="65" format="######-#{######}" tooltiptype="default" type="string" onchanged="MaskEdit00_onchanged"/>
+        <Button id="Button00" taborder="1" text="확인" left="417" top="50" width="121" height="58"/>
+        <MaskEdit id="MaskEdit01" taborder="2" left="53" top="123" width="309" height="71" displaynulltext="전화번호 압력" type="string" format="010-####-####" onchanged="MaskEdit00_onchanged"/>
+        <MaskEdit id="MaskEdit02" taborder="3" left="58" top="211" width="307" height="83" onchanged="MaskEdit00_onchanged" displaynulltext="도서번호" type="string" format="AAAA-####"/>
+        <MaskEdit id="MaskEdit03" taborder="4" left="64" top="309" width="310" height="75" displaynulltext="카드번호" type="string" format="####-{####}-{####}-####" onchanged="MaskEdit00_onchanged"/>
+        <MaskEdit id="MaskEdit04" taborder="5" left="70" top="401" width="299" height="62" format="#,###" onchanged="MaskEdit00_onchanged"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.MaskEdit00_onchanged = function(obj:nexacro.MaskEdit,e:nexacro.ChangeEventInfo)
+{
+	//alert(this.MaskEdit00.value);
+	//alert('010' + this.MaskEdit01.value);
+	//alert(this.MaskEdit02.value);
+	//alert(this.MaskEdit03.value);
+	alert(this.MaskEdit04.value);
+};
+
+
+
+]]></Script>
+  </Form>
+</FDL>

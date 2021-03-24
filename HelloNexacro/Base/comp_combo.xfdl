@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="comp_combo" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" width="1280">
+        <Combo id="Combo00" taborder="0" text="Combo00" left="50" top="64" width="259" height="52" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="Combo00_onitemchanged" displaynulltext="부서">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">D1</Col>
+                <Col id="datacolumn">인사</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">D2</Col>
+                <Col id="datacolumn">기획</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">D3</Col>
+                <Col id="datacolumn">총무</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">D4</Col>
+                <Col id="datacolumn">개발</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Combo>
+        <Combo id="Combo01" taborder="1" text="Combo01" left="55" top="141" width="254" height="66" innerdataset="ds_dept" datacolumn="deptData" codecolumn="deptCode" onitemchanged="Combo01_onitemchanged" displaynulltext="부서"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Combo00_onitemchanged = function(obj:nexacro.Combo,e:nexacro.ItemChangeEventInfo)
+{
+	alert(obj.text + "(" + obj.value + ")");
+};
+
+this.Combo01_onitemchanged = function(obj:nexacro.Combo,e:nexacro.ItemChangeEventInfo)
+{
+	alert(obj.text + "(" + obj.value + ")");
+};
+]]></Script>
+    <Objects>
+      <Dataset id="ds_dept">
+        <ColumnInfo>
+          <Column id="deptCode" type="STRING" size="256"/>
+          <Column id="deptData" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="deptCode">D1</Col>
+            <Col id="deptData">인사</Col>
+          </Row>
+          <Row>
+            <Col id="deptCode">D2</Col>
+            <Col id="deptData">기획</Col>
+          </Row>
+          <Row>
+            <Col id="deptCode">D3</Col>
+            <Col id="deptData">총무</Col>
+          </Row>
+          <Row>
+            <Col id="deptCode">D4</Col>
+            <Col id="deptData">개발</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>

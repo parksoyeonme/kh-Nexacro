@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="comp_edit" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" width="1280">
+        <Edit id="Edit00" taborder="0" left="75" top="48" width="335" height="82" displaynulltext="아이디를 입력하세요"/>
+        <Button id="Button00" taborder="1" text="확인" left="520" top="68" width="120" height="50" onclick="Button00_onclick"/>
+        <Edit id="Edit01" taborder="2" left="73" top="139" width="335" height="82" displaynulltext="비밀번호를 입력하세요" password="true"/>
+        <Edit id="Edit02" taborder="3" left="75" top="236" width="335" height="82" value="이것은 읽기전용입니다" text="이것은 읽기전용입니다" readonly="true"/>
+        <Edit id="Edit03" taborder="4" left="75" top="330" width="335" height="82" displaynulltext="영문자만 입력가능합니다" inputtype="english"/>
+        <Edit id="Edit04" taborder="5" left="75" top="424" width="335" height="82" displaynulltext="숫자만 입력가능" inputtype="number" maxlength="10"/>
+        <CheckBox id="CheckBox00" taborder="6" text="비밀번호확인" left="471" top="158" width="173" height="60" onclick="CheckBox00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	alert(this.Edit00.value);
+	this.Edit00.set_value(''); //초기화
+};
+
+//비밀번호 확인-체크박스 클릭시에 비번이 보여진다
+this.CheckBox00_onclick = function(obj:nexacro.CheckBox,e:nexacro.ClickEventInfo)
+{
+	var isPassword = !obj.value;
+	this.Edit01.set_password(isPassword);
+};
+]]></Script>
+  </Form>
+</FDL>
