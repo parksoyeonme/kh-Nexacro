@@ -15,7 +15,7 @@ this.Calendar00_onchanged = function(obj:nexacro.Calendar,e:nexacro.ChangeEventI
 	alert(obj.getYear() + "/" + obj.getMonth() + "/" + obj.getDay());
 	
 	//요일 일요일 0 ~ 토요일 6
-	var arr = ['일', '월', '호', '목', '금', '토'];
+	var arr = ['일', '월', '화', '목', '금', '토'];
 	alert(arr[obj.getDayOfWeek()] + "요일");
 };
 

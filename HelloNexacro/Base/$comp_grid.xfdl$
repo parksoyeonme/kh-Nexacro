@@ -165,6 +165,7 @@ this.Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventIn
 
 this.Div00_Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
+
 	//현재 선택된 행의 인덱스 가져오기
 	var nRow = this.ds_students.rowposition;
 	 if(confirm("[" + nRow + "]를 정말 삭제하시겠습니까?")){

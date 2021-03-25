@@ -16,7 +16,7 @@
 this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	//alert('안녕');
-// 	trace('trace : ' + obj.text);
+	//trace('trace : ' + obj.text); //개발자도구에찍힘
 // 	console.log('console.log :' + obj.text); //NRE에서 무시
 
 	alert(this.Edit00.value); //getter로 사용
