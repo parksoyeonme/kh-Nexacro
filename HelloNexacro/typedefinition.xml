@@ -41,6 +41,8 @@
     <Service prefixid="Base" type="form" url="./Base/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="FrameBase" type="form" url="./FrameBase/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
     <Service prefixid="Images" type="file" url="./Images/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="Server" type="form" url="./Server/" version="0" cachelevel="session" include_subdir="false" communicationversion="0"/>
+    <Service prefixid="DataUrl" type="JSP" version="0" cachelevel="session" include_subdir="false" communicationversion="0" url="http://localhost:9090/nxcr"/>
   </Services>
   <Protocols/>
   <DeviceAdaptors/>
