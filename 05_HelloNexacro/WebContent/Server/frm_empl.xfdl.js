@@ -236,7 +236,27 @@
 
         this.Div00_Button03_onclick = function(obj,e)
         {
+        	/*
+               Application.transaction(
+                 strSvcID,      	-- service id
+                 strURL,         	-- 요청 url
+                 strInDatasets,   	-- 요청 dataset serverDataset=clientDataset1 / 잘 적어야 함. 여러개면 공백 기준으로 연결
+        							-- 옵션 : :U(갱신정보), :A(모든정보), :N(기본값:삭제제외)
+                 strOutDatasets,  	-- 응답 dataset clientDataset1=serverDataset1 / 응답받는 데이터셋, 역시 공백 기준 연결
+                 strArgument,  		-- 사용자 입력값(전송할 값이 있다면)
+                 strCallbackFunc   	-- callback함수(문자열로 전달해야 한다)
+        		};
+            */
 
+        	//nexcaro.getApplication()
+        	_application.transaction(
+        		"empl.save",
+        		"DataUrl::/empl/save",
+        		"in_ds=gds_empl:A",
+        		"",
+        		"",
+        		"callbackFunc"
+        	);
         };
         /*
            db에서 tb_empl의 데이터를 불러와 페이지에 로드한다.
@@ -269,17 +289,6 @@
         this.Div00_Button00_onclick = function(obj,e)
         {
 
-        	/*
-               Application.transaction(
-                 strSvcID,      	-- service id
-                 strURL,         	-- 요청 url
-                 strInDatasets,   	-- 요청 dataset serverDataset=clientDataset1 / 잘 적어야 함. 여러개면 공백 기준으로 연결
-        							-- 옵션 : :U(갱신정보), :A(모든정보), :N(기본값:삭제제외)
-                 strOutDatasets,  	-- 응답 dataset clientDataset1=serverDataset1 / 응답받는 데이터셋, 역시 공백 기준 연결
-                 strArgument,  		-- 사용자 입력값(전송할 값이 있다면)
-                 strCallbackFunc   	-- callback함수(문자열로 전달해야 한다)
-        		};
-            */
 
         	_application.transaction(
         		"empl.select",
@@ -294,7 +303,12 @@
         	console.log(strSvcID, nErrorCode, strErrorMsg);
         	 //nErrorCode 가 음수면 에러
         	if(nErrorCode < 0) alert(strErrorMsg);
-        	else alert("[" + strSvcID + "] 트랜잭션 성공!");
+        	//else alert("[" + strSvcID + "] 트랜잭션 성공!");
+        };
+
+        this.frm_empl_onload = function(obj,e)
+        {
+        	this.Div00_Button00_onclick();
         };
 
         });
@@ -302,6 +316,7 @@
         // Regist UI Components Event
         this.on_initEvent = function()
         {
+            this.addEventHandler("onload",this.frm_empl_onload,this);
             this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
             this.Div00.form.Button01.addEventHandler("onclick",this.Div00_Button01_onclick,this);
             this.Div00.form.Button02.addEventHandler("onclick",this.Div00_Button02_onclick,this);

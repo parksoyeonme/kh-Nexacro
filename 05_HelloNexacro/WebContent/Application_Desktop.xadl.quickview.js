@@ -20,6 +20,11 @@
             obj = new Dataset("gds_pos", this);
             obj._setContents("<ColumnInfo><Column id=\"POS_CD\" type=\"string\" size=\"32\"/><Column id=\"POS_NAME\" type=\"string\" size=\"32\"/></ColumnInfo><Rows><Row><Col id=\"POS_CD\">04</Col><Col id=\"POS_NAME\">Officer</Col></Row><Row><Col id=\"POS_CD\">03</Col><Col id=\"POS_NAME\">Assistant Manager</Col></Row><Row><Col id=\"POS_CD\">02</Col><Col id=\"POS_NAME\">Division Manager</Col></Row><Row><Col id=\"POS_CD\">01</Col><Col id=\"POS_NAME\">Chairman</Col></Row></Rows>");
             this._addDataset(obj.name, obj);
+
+
+            obj = new Dataset("gds_menu", this);
+            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"level\" type=\"STRING\" size=\"256\"/><Column id=\"url\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"id\">1</Col><Col id=\"name\">Component</Col><Col id=\"level\">0</Col></Row><Row><Col id=\"id\">1-1</Col><Col id=\"name\">Edit</Col><Col id=\"url\">Base::comp_edit.xfdl</Col><Col id=\"level\">1</Col></Row><Row><Col id=\"id\">1-2</Col><Col id=\"name\">Calendar</Col><Col id=\"level\">1</Col><Col id=\"url\">Base::comp_calendar.xfdl</Col></Row><Row><Col id=\"id\">2</Col><Col id=\"name\">Server</Col><Col id=\"level\">0</Col></Row><Row><Col id=\"id\">2-1</Col><Col id=\"name\">Transaction</Col><Col id=\"level\">1</Col><Col id=\"url\">Server::frm_empl.xfdl</Col></Row></Rows>");
+            this._addDataset(obj.name, obj);
             
             // global variable
 
@@ -86,6 +91,11 @@
            var dd = today.getDate().toString().padStart(2, "0");
 
            return ""+yyyy+mm+dd;
+        };
+
+        this.openFrm = function(url){
+
+        	this.mainframe.VFrameSet00.HFrameSet00.WorkFrame.set_formurl(url);
         };
         });
         

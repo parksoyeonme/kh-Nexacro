@@ -107,9 +107,7 @@
         	"quickview":"./Application_Desktop.xadl.quickview.js",
         	"form":[
         				"./FrameBase/Form_Top.xfdl.js",
-        		"./FrameBase/Form_Left.xfdl.js",
-        		"./Server/frm_empl.xfdl.js",
-        		"./FrameBase/Form_Bottom.xfdl.js"
+        		"./FrameBase/Form_Left.xfdl.js"
         	]
         }
         ],  

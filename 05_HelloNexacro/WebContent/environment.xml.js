@@ -26,7 +26,7 @@ if (nexacro.Environment)
         nexacro._addService("FrameBase", "form", "./FrameBase/", "session", null, "", "0", "0");
         nexacro._addService("Images", "file", "./Images/", "session", null, "", "0", "0");
         nexacro._addService("Server", "form", "./Server/", "session", null, "", "0", "0");
-        nexacro._addService("DataUrl", "JSP", "http://localhost:9090/nxcr", "session", null, "", "0", "0");
+        nexacro._addService("DataUrl", "JSP", "http://localhost:9090/nxcr", "none", null, "", "0", "0");
 
     	nexacro._component_uri = (nexacro._arg_compurl ? nexacro._arg_compurl : "./nexacro17lib/component/");
     	nexacro._theme_uri = "./_resource_/_theme_/";
