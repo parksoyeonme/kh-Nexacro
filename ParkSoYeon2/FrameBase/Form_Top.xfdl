@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Top" width="900" height="50" titletext="Form_Top">
+    <Layouts>
+      <Layout width="900" height="50" screenid="example_screen">
+        <ImageViewer id="ImageViewer00" taborder="0" left="0" top="0" width="220" height="50" image="url('Images::top_logo.jpg')" stretch="fixaspectratio"/>
+        <Menu id="Menu00" taborder="1" left="221" top="0" width="679" height="50" innerdataset="menu_dataset" captioncolumn="m_name" idcolumn="m_id" levelcolumn="m_level"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[]]></Script>
+  </Form>
+</FDL>

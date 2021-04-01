@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Work" width="700" height="650" titletext="Form_Work">
+    <Layouts>
+      <Layout width="700" height="650" screenid="example_screen">
+        <Static id="Static00" taborder="0" text="회원가입" left="74" top="18" width="152" height="45" font="bold 26px/normal Consolas" textAlign="center" verticalAlign="middle"/>
+        <Static id="Static01" taborder="1" text="아이디" left="85" top="86" width="145" height="34" background="royalblue" color="aliceblue" font="bold 16px/normal &quot;Consolas&quot;" textAlign="center" verticalAlign="middle"/>
+        <Static id="Static02" taborder="2" text="비밀번호" left="85" top="136" width="145" height="34" background="royalblue" color="aliceblue" font="bold 16px/normal &quot;Consolas&quot;" textAlign="center" verticalAlign="middle"/>
+        <Static id="Static03" taborder="3" text="이름" left="85" top="190" width="145" height="34" font="bold 16px/normal &quot;Consolas&quot;" color="aliceblue" verticalAlign="middle" textAlign="center" background="royalblue"/>
+        <Static id="Static04" taborder="4" text="학부" left="85" top="243" width="145" height="34" background="royalblue" color="aliceblue" font="bold 16px/normal &quot;Consolas&quot;" textAlign="center" verticalAlign="middle"/>
+        <Static id="Static05" taborder="5" text="전화번호" left="85" top="296" width="145" height="34" font="bold 16px/normal &quot;Consolas&quot;" background="royalblue" color="aliceblue" textAlign="center" verticalAlign="middle"/>
+        <Edit id="Edit00" taborder="6" left="290" top="86" width="250" height="34" displaynulltext="아이디를 입력하세요" inputtype="english,number,symbol"/>
+        <Edit id="Edit01" taborder="7" left="290" top="136" width="250" height="34" displaynulltext="비밀번호를 입력하세요" inputtype="digit" password="true" maxlength="16"/>
+        <Edit id="Edit02" taborder="8" left="290" top="190" width="250" height="34" displaynulltext="이름을 입력하세요"/>
+        <Radio id="Radio00" taborder="9" left="295" top="246" width="250" height="34" innerdataset="innerdataset" codecolumn="codecolumn" datacolumn="datacolumn" rowcount="1">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn">자바학부</Col>
+                <Col id="datacolumn">자바학부</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">보안학부</Col>
+                <Col id="datacolumn">보안학부</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
+        <MaskEdit id="MaskEdit00" taborder="10" left="290" top="296" width="250" height="34" displaynulltext="전화번호를 입력하세요" format="###-####-####" type="string"/>
+        <Button id="Button00" taborder="11" text="회원가입" left="180" top="350" width="140" height="34" background="royalblue" color="aliceblue" font="bold 12px/normal &quot;Gulim&quot;" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="12" text="취소하기" left="360" top="350" width="140" height="34" color="aliceblue" background="gray" font="bold 12px/normal &quot;Gulim&quot;" onclick="Button01_onclick"/>
+        <TextArea id="TextArea00" taborder="13" left="90" top="404" width="450" height="113" readonly="true"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{	
+	//if(this.Edit00.value == null)
+	if(this.Edit00.value == undefined || this.Edit00.value == ''){
+		alert("비어있는 항목이 존재합니다.");
+		this.Edit00.setFocus();
+		return;
+		
+	}else if(this.Edit01.value == undefined || this.Edit00.value == ''){
+		alert("비어있는 항목이 존재합니다.");
+		this.Edit01.setFocus();
+		return;
+	}
+	else if(this.Edit02.value == undefined || this.Edit00.value == ''){
+		alert("비어있는 항목이 존재합니다.");
+		this.Edit02.setFocus();
+		return;
+	}
+	else if(this.Radio00.value == undefined || this.Edit00.value == ''){
+		alert("비어있는 항목이 존재합니다.");
+		this.Radio00.setFocus();
+		return;
+	}
+	else if(this.MaskEdit00.value == undefined || this.Edit00.value == ''){
+		alert("비어있는 항목이 존재합니다.");
+		this.MaskEdit00.setFocus();
+		
+	}else{
+	this.TextArea00.set_value(
+		this.Radio00.value + ' ' + 
+		this.Edit02.value + '(' + this.Edit00.value + ') 훈련생, 응원합니다!'+'\r\n'+
+		'핸드폰 번호 : ' + this.MaskEdit00.value
+	);
+	
+	};
+	
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.Edit00.set_value('');
+	this.Edit01.set_value('');
+	this.Edit02.set_value('');
+	this.Radio00.set_value('');
+	this.MaskEdit00.set_value('');
+};
+]]></Script>
+  </Form>
+</FDL>
